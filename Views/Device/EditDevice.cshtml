@@ -1,0 +1,94 @@
+﻿@using Lab2_TuThiHongDiep_CSE422.Models;
+@model Lab2_TuThiHongDiep_CSE422.Models.Device
+
+@{
+    ViewData["Title"] = "Edit Device";
+    var categories = ViewData["Categories"] as List<Category>;
+    var users = ViewData["Users"] as List<User>;
+}
+
+<h1>Edit Device</h1>
+
+<form method="post" asp-action="EditDevice">
+    <!-- Device Name -->
+    <div class="mb-3">
+        <label for="Name" class="form-label">Device Name</label>
+        <input type="text" id="Name" name="Name" class="form-control" value="@Model.Name" required />
+    </div>
+
+    <!-- User Using -->
+    <div class="mb-3">
+        <label for="UserId" class="form-label">User Using</label>
+        <select class="form-select" id="UserId" name="UserId">
+            @if(Model.UserId=="" && users!= null ){
+                <option value="" disabled selected="@(Model.UserId == "")">Select user using device</option>
+                foreach (var user in users)
+                {
+                    <option value="@user.Id" selected="@(user.Id==Model.UserId)">@user.FullName</option>
+                }
+            }else{
+                <option value="" disabled selected="@(Model.UserId == "")">Select user using device</option>
+                foreach (var user in users)
+                {
+                    <option value="@user.Id" selected="@(user.Id==Model.UserId)">@user.FullName</option>
+                }
+            }
+        </select>
+    </div>
+
+    <!-- Device Code -->
+    <div class="mb-3">
+        <label for="Code" class="form-label">Device Code</label>
+        <input type="text" id="Code" name="Code" class="form-control" value="@Model.Code" required />
+    </div>
+
+    <!-- Category -->
+    <div class="mb-3">
+        <label for="CategoryId" class="form-label">Category</label>
+        <select class="form-select" id="CategoryId" name="CategoryId" required>
+            @if (Model.CategoryID == "" && categories != null)
+            {
+                <option value="" disabled selected="@(Model.CategoryID == "")">Select category</option>
+                foreach (var category in categories)
+                {
+                    <option value="@category.Id" selected="@(category.Id == Model.CategoryID)">@category.Name</option>
+                }
+            }
+            else
+            {
+                @if (categories != null)
+                {
+                    <option value="" selected="@(Model.CategoryID == "")">Select category</option>
+
+                    foreach (var category in categories)
+                    {
+                        <option value="@category.Id" selected="@(category.Id == Model.CategoryID)">@category.Name</option>
+                    }
+                }
+            }
+        </select>
+    </div>
+
+    <!-- Status -->
+    <div class="mb-3">
+        <label for="Status" class="form-label">Status</label>
+        <select class="form-select" id="Status" name="Status" required>
+            <option value="" disabled>Select status</option>
+            <option value="1" selected="@(Model.Status.ToString() == "InUse" ? "selected" : null)">In Use</option>
+            <option value="2" selected="@(Model.Status.ToString() == "Broken" ? "selected" : null)">Broken</option>
+            <option value="3" selected="@(Model.Status.ToString() == "UnderMaintenance" ? "selected" : null)">Under Maintenance</option>
+        </select>
+    </div>
+
+    <!-- Date of Entry -->
+    <div class="mb-3">
+        <label for="DateOfEntry" class="form-label">Date of Entry</label>
+        <input type="date" id="DateOfEntry" name="DateOfEntry" class="form-control" value="@Model.DateOfEntry.ToString("yyyy-MM-dd")" required />
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="mt-3">
+        <button type="submit" class="btn btn-success">Save Changes</button>
+        <a href="/Device/DeviceManagement" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>

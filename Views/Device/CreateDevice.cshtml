@@ -1,0 +1,74 @@
+﻿@using Lab2_TuThiHongDiep_CSE422.Models;
+@{
+    ViewData["Title"] = "Create New Device";
+    var categories = ViewData["Categories"] as List<Category>;
+    var users = ViewData["Users"] as List<User>;
+}
+
+<h1>Create New Device</h1>
+
+<form method="post" asp-action="CreateDevice">
+    <!-- Device Name -->
+    <div class="mb-3">
+        <label for="Name" class="form-label">Device Name</label>
+        <input type="text" name="Name" class="form-control" required />
+    </div>
+
+    <!-- User Using Dropdown -->
+    <div class="mb-3">
+        <label for="UserId" class="form-label">User Using</label>
+        <select class="form-select" id="UserId" name="UserId">
+            <option value="" disabled selected>Select user</option>
+            @if (users != null)
+            {
+                foreach (var user in users)
+                {
+                    <option value="@user.Id">@user.FullName</option>
+                }
+            }
+        </select>
+    </div>
+
+    <!-- Device Code -->
+    <div class="mb-3">
+        <label for="Code" class="form-label">Device Code</label>
+        <input type="text" class="form-control" id="Code" name="Code" required />
+    </div>
+
+    <!-- Category Dropdown -->
+    <div class="mb-3">
+        <label for="CategoryId" class="form-label">Category</label>
+        <select class="form-select" id="CategoryId" name="CategoryId" required>
+            <option value="" disabled selected>Select category</option>
+            @if (categories != null)
+            {
+                foreach (var category in categories)
+                {
+                    <option value="@category.Id">@category.Name</option>
+                }
+            }
+        </select>
+    </div>
+
+    <!-- Status Dropdown -->
+    <div class="mb-3">
+        <label for="Status" class="form-label">Status</label>
+        <select class="form-select" id="Status" name="Status" required>
+            <option value="" disabled selected>Select status</option>
+            <option value="1">In Use</option>
+            <option value="2">Broken</option>
+            <option value="3">Under Maintenance</option>
+        </select>
+    </div>
+
+    <!-- Date of Entry -->
+    <div class="mb-3">
+        <label for="DateOfEntry" class="form-label">Date of Entry</label>
+        <input type="date" class="form-control" id="DateOfEntry" name="DateOfEntry" required />
+    </div>
+
+    <div class="mt-3">
+        <button type="submit" class="btn btn-success">Create</button>
+        <a href="/Device/DeviceManagement" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>

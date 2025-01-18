@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\CSE422\\Lab2\\Lab2\\CSE422_LAB2_TuThiHongDiep\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4CB9DA9D-6B07-44CA-823D-D418EDFA143A}|Lab2_TuThiHongDiep_CSE422.csproj|e:\\cse422\\lab2\\lab2\\cse422_lab2_tuthihongdiep\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{4CB9DA9D-6B07-44CA-823D-D418EDFA143A}|Lab2_TuThiHongDiep_CSE422.csproj|solutionrelative:wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "site.js",
+              "DocumentMoniker": "E:\\CSE422\\Lab2\\Lab2\\CSE422_LAB2_TuThiHongDiep\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\site.js",
+              "ToolTip": "E:\\CSE422\\Lab2\\Lab2\\CSE422_LAB2_TuThiHongDiep\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "wwwroot\\js\\site.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-01-11T05:58:58.884Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
